@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class SortTest {
 
     @BeforeEach
@@ -38,6 +36,22 @@ class SortTest {
     void bubbleSort() {
         int[] nums = {1, 5, 3, 8, 2, 9, 6};
         Sort.bubbleSort(nums);
+        int[] expect = {1, 2, 3, 5, 6, 8, 9};
+        Assertions.assertArrayEquals(expect, nums);
+    }
+
+    @Test
+    void insertSort() {
+        int[] nums = {1, 5, 3, 8, 2, 9, 6};
+        Sort.insert(nums);
+        int[] expect = {1, 2, 3, 5, 6, 8, 9};
+        Assertions.assertArrayEquals(expect, nums);
+    }
+
+    @Test
+    void quickSort() {
+        int[] nums = {1, 5, 3, 8, 2, 9, 6};
+        Sort.quickSort(nums);
         int[] expect = {1, 2, 3, 5, 6, 8, 9};
         Assertions.assertArrayEquals(expect, nums);
     }

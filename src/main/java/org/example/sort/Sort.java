@@ -1,7 +1,5 @@
 package org.example.sort;
 
-import java.util.Arrays;
-
 public class Sort {
     // SelectionSort
     // https://www.hello-algo.com/chapter_sorting/selection_sort/
@@ -57,15 +55,64 @@ public class Sort {
         }
     }
 
-    static void insertSort(int[] nums) {}
+    static void insert(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j > 0; j--) {
+                if (nums[j] < nums[j - 1]) {
+                    int tmp = nums[j];
+                    nums[j] = nums[j - 1];
+                    nums[j - 1] = tmp;
+                }
+            }
+        }
+    }
 
-    static void quickSort(int[] nums) {}
+    static void quickSort(int[] nums) {
+        quickSort(nums, 0, nums.length - 1);
+    }
 
-    static void mergeSort(int[] nums) {}
+    static void quickSort(int[] nums, int left, int right) {
+        if (left >= right) {
+            return;
+        }
 
-    static void heapSort(int[] nums) {}
+        int mid = partition(nums, left, right);
+        quickSort(nums, left, mid - 1);
+        quickSort(nums, mid + 1, right);
+    }
 
-    static void bucketSort(int[] nums) {}
+    static int partition(int[] nums, int left, int right) {
+        int i = left;
+        int j = right;
 
-    static void countingSort(int[] nums) {}
+        while (i < j) {
+            while (i < j && nums[j] > nums[left]) {
+                j--;
+            }
+            while (i < j && nums[i] <= nums[left]) {
+                i++;
+            }
+            int tmp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = tmp;
+        }
+        int tmp = nums[left];
+        nums[left] = nums[i];
+        nums[i] = tmp;
+
+        return i;
+    }
+
+    static void mergeSort(int[] nums) {
+    }
+
+    static void heapSort(int[] nums) {
+    }
+
+    static void bucketSort(int[] nums) {
+    }
+
+    static void countingSort(int[] nums) {
+    }
 }
