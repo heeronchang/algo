@@ -41,9 +41,9 @@ class SortTest {
     }
 
     @Test
-    void insertSort() {
+    void insertionSort() {
         int[] nums = {1, 5, 3, 8, 2, 9, 6};
-        Sort.insert(nums);
+        Sort.insertionSort(nums);
         int[] expect = {1, 2, 3, 5, 6, 8, 9};
         Assertions.assertArrayEquals(expect, nums);
     }
@@ -52,6 +52,14 @@ class SortTest {
     void quickSort() {
         int[] nums = {1, 5, 3, 8, 2, 9, 6};
         Sort.quickSort(nums);
+        int[] expect = {1, 2, 3, 5, 6, 8, 9};
+        Assertions.assertArrayEquals(expect, nums);
+    }
+
+    @Test
+    void mergeSort() {
+        int[] nums = {1, 5, 3, 8, 2, 9, 6};
+        Sort.mergeSort(nums);
         int[] expect = {1, 2, 3, 5, 6, 8, 9};
         Assertions.assertArrayEquals(expect, nums);
     }
